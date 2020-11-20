@@ -1,0 +1,13 @@
+Package: hamiltonSeirVaccination
+Title: Hamilton's vaccination plan 
+Version: 0.0.0.9000
+Authors@R: person('AUTHOR_FIRST', 'AUTHOR_LAST', email = 'consultoria@rseis.com.br', role = c('cre', 'aut'))
+Description: Golem package for the vaccination plan app.
+License: MIT + file LICENSE
+Imports: 
+    config,
+    golem,
+    shiny
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 6.1.1
