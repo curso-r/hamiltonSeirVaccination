@@ -90,9 +90,9 @@ mod_original_version_ui <- function(id){
              get_assumptions_text()
            )
          ) 
-        ),
-        hamiltonThemes:::bs4dash_distill_footer()
-      )
+        )
+      ),
+      footer = hamiltonThemes:::bs4dash_distill_footer()
     )
  
   )
