@@ -7,7 +7,18 @@ License: MIT + file LICENSE
 Imports: 
     config,
     golem,
-    shiny
+    shiny,
+    magrittr,
+    bs4Dash,
+    dplyr,
+    ggplot2,
+    hamiltonThemes,
+    plotly,
+    scales,
+    shinyjs,
+    stringr,
+    tibble,
+    tidyr
 Encoding: UTF-8
 LazyData: true
-RoxygenNote: 6.1.1
+RoxygenNote: 7.1.1
