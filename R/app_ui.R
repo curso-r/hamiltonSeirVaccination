@@ -10,7 +10,8 @@ app_ui <- function(request) {
     golem_add_external_resources(),
     # List the first level UI elements here 
     fluidPage(
-      mod_original_version_ui("original_version_ui_1")
+      mod_original_v2_ui("original_v2_ui_1")
+      # mod_original_version_ui("original_version_ui_1")
     )
   )
 }

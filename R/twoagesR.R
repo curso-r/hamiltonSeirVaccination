@@ -8,18 +8,18 @@
 # 	Time YS YE YI YR OS OE OI OR
 #
 # dyn.load(system.file("app/www/twoagesR.so", package = "hamiltonSeirVaccination"))
-#' @useDynLib hamiltonSeirVaccination twoages_
-twoagesv <- function(YS, YE, YI, YR, OS, OE, OI, OR, YR0Y, YR0O, OR0Y, OR0O, Yvac, Ovac) {
-  stopifnot(is.numeric(YS), is.numeric(YE), is.numeric(YI), is.numeric(YR))
-  stopifnot(is.numeric(OS), is.numeric(OE), is.numeric(OI), is.numeric(OR))
-  stopifnot(is.numeric(YR0Y), is.numeric(YR0O), is.numeric(OR0Y), is.numeric(OR0O))
-  stopifnot(is.numeric(Yvac), is.numeric(Ovac))
-  stopifnot(length(YS) == 1, length(YE) == 1, length(YI) == 1, length(YR) == 1)
-  stopifnot(length(OS) == 1, length(OE) == 1, length(OI) == 1, length(OR) == 1)
-  stopifnot(length(YR0Y) == 1, length(YR0O) == 1, length(OR0Y) == 1, length(OR0O) == 1)
-  stopifnot(length(Yvac) >= 1, length(Ovac) >= 1)
-  .Call(twoages_, YS, YE, YI, YR, OS, OE, OI, OR, YR0Y, YR0O, OR0Y, OR0O, as.integer(Yvac), as.integer(Ovac))
-}
+# #' @useDynLib hamiltonSeirVaccination twoages_
+# twoagesv <- function(YS, YE, YI, YR, OS, OE, OI, OR, YR0Y, YR0O, OR0Y, OR0O, Yvac, Ovac) {
+#   stopifnot(is.numeric(YS), is.numeric(YE), is.numeric(YI), is.numeric(YR))
+#   stopifnot(is.numeric(OS), is.numeric(OE), is.numeric(OI), is.numeric(OR))
+#   stopifnot(is.numeric(YR0Y), is.numeric(YR0O), is.numeric(OR0Y), is.numeric(OR0O))
+#   stopifnot(is.numeric(Yvac), is.numeric(Ovac))
+#   stopifnot(length(YS) == 1, length(YE) == 1, length(YI) == 1, length(YR) == 1)
+#   stopifnot(length(OS) == 1, length(OE) == 1, length(OI) == 1, length(OR) == 1)
+#   stopifnot(length(YR0Y) == 1, length(YR0O) == 1, length(OR0Y) == 1, length(OR0O) == 1)
+#   stopifnot(length(Yvac) >= 1, length(Ovac) >= 1)
+#   .Call(twoages_, YS, YE, YI, YR, OS, OE, OI, OR, YR0Y, YR0O, OR0Y, OR0O, as.integer(Yvac), as.integer(Ovac))
+# }
 
 # Run it with 
 # result1 = twoagesv(4000000, 250, 250, 100000, 900000, 50, 50, 100000, 1.5, 0.3, 0.3, 0.6, rep(20000,100), rep(20000,100))

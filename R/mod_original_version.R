@@ -162,6 +162,7 @@ mod_original_version_server <- function(input, output, session){
         dplyr::lag(cumsum(store[[i]]$OV), default = 0) - 
         input$rec2 # Old recovered not vaccinated
     }
+   
     # Quick plot
     # plot(store[[1]]$Time, store[[1]]$OR_NV, type = 'l')
     # lines(store[[1]]$Time, store[[1]]$OI, col = 'red')
