@@ -21,6 +21,7 @@ mod_original_v2_ui <- function(id){
         fluidRow(
           column(
             width = 3,
+            dateInput(ns("start_vac"), "Starting date of vaccination", "2021-01-01" ),
             sliderInput(ns("vacc_Y"), "Daily number of vaccinations for under 65s", 0, 50000, 2000, step = 100),
             
             sliderInput(ns("vacc_O"), "Daily number of vaccinations for over 65s", 0, 50000, 18000, step = 100),
@@ -190,11 +191,11 @@ mod_original_v2_server <- function(input, output, session){
     # lines(store[[1]]$Time, store[[1]]$YR, col = 'red') # Vaccinated after disease
     
     # Extract out the infections and quantiles for each group
-    YR_final = grab_all(store, "YR", "Under 65s recovered from disease")
-    OR_final = grab_all(store, "OR", "Over 65s recovered from disease")
-    OR_final = grab_all(store, "OR", "Over 65s recovered from disease")
-    YRV_final = grab_all(store, "YRV", "Under 65s successfully vaccinated")
-    ORV_final = grab_all(store, "ORV", "Over 65s successfully vaccinated")
+    YR_final = grab_all(store, "YR", "Under 65s recovered from disease", input$start_vac)
+    OR_final = grab_all(store, "OR", "Over 65s recovered from disease", input$start_vac)
+    OR_final = grab_all(store, "OR", "Over 65s recovered from disease", input$start_vac)
+    YRV_final = grab_all(store, "YRV", "Under 65s successfully vaccinated", input$start_vac)
+    ORV_final = grab_all(store, "ORV", "Over 65s successfully vaccinated", input$start_vac)
     
     # Tidy up into one data frame
     final = dplyr::left_join(YR_final, OR_final, by = "Date") %>% 
@@ -213,7 +214,7 @@ mod_original_v2_server <- function(input, output, session){
       ggplot2::scale_y_continuous(expand = c(0, 0), labels = scales::comma) +
       ggplot2::theme_bw()
     # theme(axis.title.y = element_text(angle = 0, vjust = 1, hjust=0))
-    if(input$log_scale) plt1 = plt1 + ggplot2::scale_y_log10(expand = c(0, 0), labels = comma)
+    if(input$log_scale) plt1 = plt1 + ggplot2::scale_y_log10(expand = c(0, 0), labels = scales::comma)
     
     plotly::ggplotly(plt1)
     

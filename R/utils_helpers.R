@@ -16,7 +16,7 @@ pad_fun = function(x) {
 }
 
 # Function extract ane element from a list and tidy it up
-grab_all = function(lst, el, name) {
+grab_all = function(lst, el, name, date) {
   vals = lapply(lst, "[", el)
   
   # Add 0s to each vector to make them the same length
@@ -30,7 +30,7 @@ grab_all = function(lst, el, name) {
   # Final data frame for YR
   nrows = lapply(lst, 'nrow') %>% unlist
   time_max = lst[[which.max(nrows)]]$Time
-  dates = as.Date("2021-01-01") + time_max 
+  dates = as.Date(date) + time_max 
   val_final = tibble::tibble(Date = dates, 
                      `Median` = val_median)
   # `Low5` = val_low,
