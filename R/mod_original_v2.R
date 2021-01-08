@@ -171,7 +171,7 @@ mod_original_v2_server <- function(input, output, session){
         OR0O = input$R0_O, 
         Yvac = rep(input$vacc_Y, input$num_days),  
         Ovac = rep(input$vacc_O, input$num_days), 
-        Veff = input$vacc_ef) %>% 
+        Veff = input$vacc_ef/100) %>% 
         as.data.frame %>% 
         dplyr::rename("Time" = 1, "YSU" = 2, "YSV" = 3, 
                "YSVNE" = 4, "YSNV" = 5, "YE" = 6,
