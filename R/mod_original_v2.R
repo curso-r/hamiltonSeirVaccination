@@ -112,7 +112,6 @@ mod_original_v2_ui <- function(id){
 #' @noRd 
 mod_original_v2_server <- function(input, output, session){
   ns <- session$ns
- 
   observeEvent(input$button, {
     shinyjs::toggle("num_days")
     shinyjs::toggle("exp_Y")
@@ -125,6 +124,7 @@ mod_original_v2_server <- function(input, output, session){
     shinyjs::toggle("pop_O")
     shinyjs::toggle("num_sim")
   }, ignoreNULL = FALSE)
+  
   
   output$plot <- plotly::renderPlotly({
     ##### General setup
@@ -171,7 +171,7 @@ mod_original_v2_server <- function(input, output, session){
         OR0O = input$R0_O, 
         Yvac = rep(input$vacc_Y, input$num_days),  
         Ovac = rep(input$vacc_O, input$num_days), 
-        Veff = input$vacc_ef) %>% 
+        Veff = input$vacc_ef/100) %>% 
         as.data.frame %>% 
         dplyr::rename("Time" = 1, "YSU" = 2, "YSV" = 3, 
                "YSVNE" = 4, "YSNV" = 5, "YE" = 6,
