@@ -22,9 +22,9 @@ mod_original_v2_ui <- function(id){
           column(
             width = 3,
             dateInput(ns("start_vac"), "Starting date of vaccination", "2021-01-01" ),
-            sliderInput(ns("vacc_Y"), "Daily number of vaccinations for under 65s", 0, 50000, 2000, step = 100),
+            sliderInput(ns("vacc_Y"), "Daily number of vaccinations for under 65s", 0, 300000, 2000, step = 1000),
             
-            sliderInput(ns("vacc_O"), "Daily number of vaccinations for over 65s", 0, 50000, 18000, step = 100),
+            sliderInput(ns("vacc_O"), "Daily number of vaccinations for over 65s", 0, 500000, 18000, step = 1000),
             
             sliderInput(ns("vacc_ef"), "Vaccine effectiveness (%)", 50, 100, 90, step = 1),
             sliderInput(ns("vacc_re"), "Vaccine refusal rate (%)", 0, 100, 30, step = 1),
@@ -71,11 +71,11 @@ mod_original_v2_ui <- function(id){
                          value = 100000),
             
             numericInput(inputId = ns("pop_Y"),
-                         label = "Population of Ireland under 65",
+                         label = "Population under 65",
                          value = 4000000),
             
             numericInput(inputId = ns("pop_O"),
-                         label = "Population of Ireland over 65",
+                         label = "Population over 65",
                          value = 900000),
             
             numericInput(inputId = ns("num_sim"),
